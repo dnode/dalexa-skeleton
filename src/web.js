@@ -5,7 +5,7 @@ app.use(require('body-parser').json());
 
 const skill = new (require('dalexa').Skill)();
 skill.onIntents([
-  require('./intents/example'),
+  require('./intents/hello'),
 ]);
 
 app.post('/', skill.getExpressHandler());
