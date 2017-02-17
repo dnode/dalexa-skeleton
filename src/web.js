@@ -1,7 +1,6 @@
 require('dotenv').config({ silent: true });
 
 const app = require('dexpress').app;
-app.use(require('body-parser').json());
 
 require('dcontrollers')(app, [
   require('./controllers/flash-briefing'),
@@ -12,4 +11,4 @@ skill.onIntents([
   require('./intents/hello'),
 ]);
 
-app.post('/', skill.getExpressHandler());
+app.post('/', require('body-parser').json(), skill.getExpressHandler());
